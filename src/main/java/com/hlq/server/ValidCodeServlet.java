@@ -17,7 +17,8 @@ public class ValidCodeServlet extends HttpServlet {
         g.setColor(Color.WHITE);
         g.fillRect(0,0,120,30);
         g.setColor(Color.BLUE);
-        g.fillRect(1,1,118,28);
+        g.fillRect(1,1,118,29);
+
 
     }
 }

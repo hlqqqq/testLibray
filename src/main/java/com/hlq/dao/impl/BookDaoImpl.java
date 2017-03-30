@@ -10,10 +10,12 @@ import com.hlq.domain.Book;
 public class BookDaoImpl implements BookDao {
 
     public void save(Book book) {
+
         return;
     }
 
     public void delete(Book book) {
        return;
     }
+
 }
