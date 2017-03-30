@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/cache"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       <util:properties location="classpath:config/db.properties" />
+       <!--<context:property-placeholder location="classpath*:config/db.properties" />-->
+       <!--定义数据源，采用spring的datasprece,使用jdbc的驱动-->
+       <bean id="dataSourec" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+              <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+              <property name="username" value="${username}" />
+              <property name="url" value="${url}" />
+              <property name="password" value="${password}" />
+       </bean>
+       <!--定义sqlSessionFactory-->
+       <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+              <property name="dataSource" ref="dataSourec" />
+              <property name="configLocation" value="classpath*:/config/mybaties-config.xml" />
+       </bean>
+       <!--自动扫描假造隐射文件-->
+       <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+              <property name="basePackage" value="dao" />
+              <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+       </bean>
+       <!--事务管理-->
+       <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+              <property name="dataSource" ref="dataSourec" />
+       </bean>
+       <!--使用声明事务-->
+
+</beans>
