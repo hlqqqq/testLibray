@@ -18,6 +18,9 @@ public class HelloController implements Controller {
         ModelAndView mv=new ModelAndView();
         mv.addObject("message","hello,mvc,我来了");
         mv.setViewName("helloWorld");
+        mv.setViewName("helloWorld");mv.setViewName("helloWorld");mv.setViewName("helloWorld");
+
+
         return mv;
     }
 }
