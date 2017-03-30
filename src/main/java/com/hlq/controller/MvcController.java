@@ -23,5 +23,7 @@ public class MvcController {
         Map<String,String> map=new HashMap<String, String>();
         map.put("name", "何立庆");
         return "blank";
+
+
     }
 }
