@@ -19,9 +19,9 @@ import java.util.Map;
 public class MvcController {
     @RequestMapping("/hello")
     public String hello(HttpServletRequest request,HttpServletResponse response,ModelMap model){
-        model.addAttribute("user","何立庆");
+        model.addAttribute("user","xx");
         Map<String,String> map=new HashMap<String, String>();
-        map.put("name", "何立庆");
+        map.put("name", "xx");
         return "blank";
     }
 }
